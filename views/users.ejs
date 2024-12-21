@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/users.css" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let user of result) { %>
+                <tr>
+                    <td><%= user["id"] %></td>
+                    <td><%= user["username"] %></td>
+                    <td><%= user["email"] %></td>
+                    <td>
+                        <a href="http://localhost:<%= port %>/users/<%= user["id"] %>/auth?action=0">
+                            <button>Edit</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="http://localhost:<%= port %>/users/<%= user["id"] %>/auth?action=1">
+                            <button>Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
